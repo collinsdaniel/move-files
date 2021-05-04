@@ -4,8 +4,8 @@ import shutil
 
 xml_files_pattern = '*.xml'
 
-source_folder = '---'
-destination_folder = '---'
+source_folder = '/Users/collins/Documentos/QwertAI/labs/faceDetect/curadoria/imagens-curadas/'
+destination_folder = '/Users/collins/Documentos/QwertAI/labs/faceDetect/curadoria/imagens-curadas/'
 
 
 def get_xml_files():
@@ -24,7 +24,14 @@ def move():
     print("choosed files len: {}".format(len(choosed_files) / 2))
 
 
-# TODO create function to find uncured file...
+def locate():
+    files = sorted(os.listdir(destination_folder))
+    print("files: ", files)
+    for file in files:
+        # print("file: {}".format(file))
+        if os.path.splitext(file)[0] not in get_xml_files():
+            print("file not exist xml: {}".format(file))
+
 
 if __name__ == '__main__':
-    move()
+    locate()
